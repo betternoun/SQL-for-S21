@@ -6,11 +6,23 @@
     2025-02-20
 -->
 
+<style>
+    img {
+        display: block;
+        width:100%;
+        max-width: 600px;
+        min-width: 300px;
+        border: 2px solid #777;
+        padding: 10px
+        }
+</style>
+
+
 ## Основы SQL_101
 
 ### Основные объекты (разделы) в СУБД (SQL)
 
-![Sample](Sample_SQL.png)
+![Sample](./materials/Sample_SQL.png)
 >Cхема СУБД
 
 * Для манипуляцией с информацией из БД есть операторы раздела.
@@ -235,9 +247,6 @@ SELECT * FROM T1
 INNER JOIN T2 on T1.A = T2.B
 ```
 
-![innerJoin]()
->Наглядный пример
-
 * Для более мягкого объединения можно использовать `OUTER JOIN` с добавкой `LEFT`, которая говорит нам о присваении значений с левой стороны. Эту нужно, если часть данных в обеих таблицах совпадают.
 
 
@@ -245,9 +254,6 @@ INNER JOIN T2 on T1.A = T2.B
 SELECT * FROM T1
 LEFT OUTER JOIN T2 on T1.A = T2.B
 ```
-
-![outerJoin]()
->Наглядный пример
 
 * Тот же самый варинат возможен, если сравниваем таблицы из первой к второй. Этот вариант использвуют реже, но всё же он имеет место быть.
 
@@ -257,9 +263,6 @@ SELECT * FROM T1
 RIGHT OUTER JOIN T2 on T1.A = T2.B
 ```
 
-![rightOuterJoin]()
->Наглядный пример
-
 * Для полного объединения таблиц нужно использовать `FULL JOIN`. Сначала идёт поиск совподающих строк и их вывод, после вывод всех строк где есть не соответствия по всем таблицам. Дублирующие строки удаляются приминяется автоматически `DISTINCT`.
 
 
@@ -268,8 +271,8 @@ SELECT * FROM T1
 FULL JOIN T2 on T1.A = T2.B
 ```
 
-![fullJoin]()
->Наглядный пример
+![verbosesample](./materials/verboseSample.png)
+>Наглядный пример всех случаев приминения
 
 ### Подзапросы
 
@@ -337,8 +340,8 @@ FROM Order
 WHERE p.id = 2
 ```
 
-![inersect]()
->Пример
+![intersect](./materials/SQL-INTERSECT-Operator.png)
+>Наглядный пример
 
 * Для вычитания таблиц нужно использовать EXCEPT. Можно построить таблицу, в которой строки есть только из одной, а вдругой отсуствуют. При этом важно собд.юдать порядок таблиц. Данные в таблицах должны быть совместимыми.
 
@@ -353,8 +356,7 @@ FROM Order
 WHERE p.id = 2
 ```
 
-!intersect
->Пример
+
 
 ### Обработка данных
 
@@ -435,6 +437,15 @@ WHERE pizzeria = pizza_name.menu
 COMMIT TRANSACTION
 ```
 >Наглядный пример
+
+### Источники
+
+[StackOverflow](https://stackoverflow.com/questions/38549/what-is-the-difference-between-inner-join-and-outer-join
+)
+
+[SQLTutorial](https://www.sqltutorial.org/sql-intersect/)
+
+[Geeks-for-Geeks](https://www.geeksforgeeks.org/sql-intersect-clause/)
 
 ### Итог
 
